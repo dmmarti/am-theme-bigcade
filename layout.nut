@@ -6,12 +6,13 @@
 class UserConfig {
 </ label="--------  Main theme layout  --------", help="Show or hide additional images", order=1 /> uct1="select below";
    </ label="Enable wheel fade", help="Enable Wheel or disable wheel fade", options="Yes,No", order=2 /> enable_wheelfade="Yes";   
-   </ label="Cabinet color", help="Cabinet color", options="blue,green,red,yellow", order=3 /> cabcolor="red";      
-   </ label="Preserve Video Aspect Ratio", help="Preserve Video Aspect Ratio", options="Yes,No", order=4 /> Preserve_Aspect_Ratio="Yes";   
-   </ label="Select wheel layout", help="Select wheel type or listbox", options="vert_wheel_left", order=6 /> enable_list_type="vert_wheel_left";
-   </ label="Select spinwheel art", help="The artwork to spin", options="wheel", order=7 /> orbit_art="wheel";
-   </ label="Wheel transition time", help="Time in milliseconds for wheel spin.", order=8 /> transition_ms="35";  
-   </ label="Wheel fade time", help="Time in milliseconds to fade the wheel.", options="Off,1250,2500,5000,7500,10000", order=9 /> wheel_fade_ms="1500";
+   </ label="Cabinet color", help="Cabinet color", options="blue,green,red,yellow", order=3 /> cabcolor="blue";      
+   </ label="Marquee Image", help="Choose game or default marquee", options="game,default", order=4 /> mq_image = "default";
+   </ label="Preserve Video Aspect Ratio", help="Preserve Video Aspect Ratio", options="Yes,No", order=10 /> Preserve_Aspect_Ratio="Yes";   
+   </ label="Select wheel layout", help="Select wheel type or listbox", options="vert_wheel_left", order=11 /> enable_list_type="vert_wheel_left";
+   </ label="Select spinwheel art", help="The artwork to spin", options="wheel", order=12 /> orbit_art="wheel";
+   </ label="Wheel transition time", help="Time in milliseconds for wheel spin.", order=13 /> transition_ms="35";  
+   </ label="Wheel fade time", help="Time in milliseconds to fade the wheel.", options="Off,1250,2500,5000,7500,10000", order=14 /> wheel_fade_ms="1500";
 </ label="--------   Pointer images    --------", help="Change pointer image", order=18 /> uct4="select below";
    </ label="Select pointer", help="Select animated pointer", options="none", order=19 /> enable_pointer="none"; 
 </ label="--------    Miscellaneous    --------", help="Miscellaneous options", order=23 /> uct6="select below";
@@ -74,6 +75,9 @@ if ( my_config["cabcolor"] == "yellow" )
 }
 
 local mq = fe.add_image( "marquees/[DisplayName].png", flx*0.2625, fly*0.005, flw*0.475, flh*0.17 );
+if ( my_config["mq_image"] == "game") {
+ local mq = fe.add_artwork( "marquee" flx*0.2625, fly*0.005, flw*0.475, flh*0.17 );
+}
 
 ///////////////////////////////////////////////////////////////////////////////////
 // The following section sets up what type and wheel and displays the users choice
